@@ -15,7 +15,7 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true //very annoying
   },
   "exclude": [
     "node_modules",
@@ -25,5 +25,8 @@
     "webpack",
     "jest",
     "src/setupTests.ts"
-  ]
+  ],
+  "rules": {
+    "ordered-imports": false
+  }
 }

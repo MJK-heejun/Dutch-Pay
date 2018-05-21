@@ -1,20 +1,38 @@
+import { Layout } from 'antd';
+const { Content } = Layout;
 import * as React from 'react';
-import './App.css';
 
-import logo from './logo.svg';
+import './App.css';
+import CustomHeader from './components/CustomHeader'
+// import CustomSider from './components/CustomSider'
+
+
+interface ILocalState {
+  collapsed: boolean;
+}
+
 
 class App extends React.Component {
+  public state:ILocalState = {
+    collapsed: false,
+  };
+  public toggle = () => {
+    this.setState({
+      collapsed: !this.state.collapsed,
+    });
+  }
+
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
+      <Layout style={{minHeight: '100vh'}}>
+        {/* <CustomSider /> */}
+        <Layout>
+          <CustomHeader />
+          <Content style={{ margin: '24px 16px', padding: 24, background: '#fff' }}>
+            Content
+          </Content>
+        </Layout>
+      </Layout>
     );
   }
 }
